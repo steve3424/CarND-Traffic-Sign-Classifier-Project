@@ -1,48 +1,16 @@
 # **Traffic Sign Recognition** 
 
-## Writeup
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Build a Traffic Sign Recognition Project**
-
-The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
-
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+#### 1. Link to project files
 
-You're reading it! and here is a link to my [project code](https://github.com/steve3424/CarND-Traffic-Sign-Classifier-Project/blob/master/PROJECT%20SUBMISSION%20FILES/Traffic_Sign_Classifier.ipynb)
+Here is a link to my project files(https://github.com/steve3424/CarND-Traffic-Sign-Classifier-Project/tree/master/PROJECT%20SUBMISSION%20FILES)
 
 
 
-### Design and Test a Model Architecture
-
-#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+### Architecture design and techniques
 
 As per the suggestion in the project instructions, I started out using the LeNet architecture as is from the previous lab. This gave around an 89% validation accuracy without making any changes.
 
@@ -53,7 +21,7 @@ The second technique was to normalize the images to values between -1 and 1. I t
 This was all the pre-processing that was done before training.
 
 
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Final model architecture
 
 My final model consisted of the following layers:
 
@@ -77,11 +45,11 @@ My final model consisted of the following layers:
  
 
 
-#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Model training
 
-To train the model, I used the mean cross entropy as the loss operation with the AdamOptimizer. I used a learning rate of 0.0005 and ran the training for 30 epochs. I also included a dropout rate of 0.6.
+To train the model, I used the mean cross entropy as the loss operation with the AdamOptimizer to reduce the error. I used a learning rate of 0.0005 and ran the training for 30 epochs. I also included a dropout rate of 0.6.
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Strategies to improve accuracy
 
 My final validation accuracy was 96.5% 
 
@@ -93,7 +61,7 @@ Then I tuned just 2 of the hyperparameters. I cut the learning rate from 0.001 t
 
 ### Test a Model on New Images
 
-#### 1. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 1. Prediction results on new images
 
 Here are the results of the prediction:
 
@@ -108,7 +76,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. The one image that was misclassified was probably due to the fact that the image was rotated a bit. If I had trained on augmented data, it may have eliminated this issue and classified this correctly.
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Top 5 probs on new images
 
 correct label in bold
 
